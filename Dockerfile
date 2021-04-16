@@ -5,4 +5,5 @@ RUN pecl install xdebug-3.0.1
 RUN docker-php-ext-enable xdebug
 RUN echo "xdebug.mode=coverage" >> /usr/local/etc/php/php.ini
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN apt-get update && apt-get install zip unzip git
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer

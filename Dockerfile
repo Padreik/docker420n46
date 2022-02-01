@@ -1,7 +1,7 @@
-FROM php:8.0-apache
+FROM php:8.1-apache
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN a2enmod rewrite
-RUN pecl install xdebug-3.0.1
+RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 RUN echo "xdebug.mode=coverage" >> /usr/local/etc/php/php.ini
 # Install Composer
